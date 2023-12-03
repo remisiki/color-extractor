@@ -231,3 +231,9 @@ header {
         height: 150px;
     }
 }
+
+@media (prefers-reduced-motion: reduce) {
+    .centroid-block-title, #image-loader, .primary, #root, .background {
+        transition: none;
+    }
+}
