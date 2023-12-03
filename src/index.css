@@ -1,3 +1,6 @@
+/*
+Root vars, for color changing
+*/
 :root {
     --on-primary: #D2F4F9;
     --background: #CDF1FA;
@@ -27,6 +30,7 @@
 }
 
 #drop-zone {
+    /* Fill whole screen */
     position: fixed;
     top: 0;
     bottom: 0;
@@ -60,6 +64,7 @@
 }
 
 .centroid-block:hover .centroid-block-title, .centroid-block:focus .centroid-block-title {
+    /* Show title when hover/focus */
     transform: translateY(0);
 }
 
@@ -182,6 +187,7 @@ header {
     }
 }
 
+/* Desktop view */
 @media screen and (min-width: 1650px) {
     #centroid-container {
         gap: 10px;

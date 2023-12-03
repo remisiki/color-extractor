@@ -1,16 +1,26 @@
-import React, { useCallback } from "react";
-import { useDropzone } from "react-dropzone";
+import React, {useCallback} from "react";
+import {useDropzone} from "react-dropzone";
 
+/**
+ * A full-screen drop zone
+ * @param setBuffer
+ * @param setDrop
+ * @return {Element}
+ * @constructor
+ */
 export const Dropzone = ({ setBuffer, setDrop }) => {
   const onDrop = useCallback((acceptedFiles) => {
+    // Close drop zone
     setDrop(false);
     const reader = new FileReader();
     reader.onabort = () => console.log("file reading was aborted");
     reader.onerror = () => console.log("file reading has failed");
     reader.onload = () => {
+      // Read image as buffer and pass it to state
       const buffer = reader.result;
       setBuffer(buffer);
     };
+    // Only accept first file
     reader.readAsArrayBuffer(acceptedFiles[0]);
   }, []);
   const { getRootProps, getInputProps } = useDropzone({
@@ -35,6 +45,7 @@ export const Dropzone = ({ setBuffer, setDrop }) => {
           setDrop(false);
         }}
       >
+        {/* Cancel button */}
         Cancel
       </a>
     </div>

@@ -1,6 +1,11 @@
 import React from "react";
 import { ReactComponent as Logo } from "./static/darkness.svg";
 
+/**
+ * Header
+ * @return {Element}
+ * @constructor
+ */
 export const Header = () => {
   return (
     <header className={"primary"}>
