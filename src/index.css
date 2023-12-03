@@ -1,0 +1,227 @@
+:root {
+    --on-primary: #D2F4F9;
+    --background: #CDF1FA;
+    --tri-primary: #3D7DBC;
+    --second-primary: #214768;
+    --primary: #313F31;
+    --on-background: #192328;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+#root {
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    font-family: sans-serif;
+    min-width: 375px;
+    overflow: auto;
+}
+
+#drop-zone {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    color: white;
+    background-color: rgba(0, 0, 0, 0.9);
+    z-index: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
+
+#centroid-container {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    gap: 5px;
+}
+
+.centroid-block {
+    position: relative;
+    border-radius: 10px;
+    border: 2px solid black;
+    overflow: hidden;
+    cursor: pointer;
+    height: 70px;
+    aspect-ratio: 1;
+}
+
+.centroid-block:hover .centroid-block-title, .centroid-block:focus .centroid-block-title {
+    transform: translateY(0);
+}
+
+.centroid-block-title {
+    font-family: monospace;
+    bottom: 0;
+    position: absolute;
+    background-color: rgba(0, 0, 0, 0.7);
+    color: white;
+    text-align: center;
+    width: 100%;
+    transition: transform 0.5s ease;
+}
+
+#left-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    flex: 1;
+    gap: 20px;
+}
+
+#image-loader {
+    border-radius: 10px;
+    border: 5px solid var(--primary);
+    object-fit: contain;
+    transition: opacity 0.5s ease-in-out;
+    max-width: 100%;
+    max-height: 60%;
+    flex: 2;
+}
+
+main {
+    display: flex;
+    flex-direction: column;
+    width: 90%;
+    margin: 20px 0;
+    justify-content: space-between;
+    align-items: center;
+    gap: 10px;
+}
+
+#centroid-container {
+    max-height: 350px;
+    overflow: auto;
+}
+
+.primary {
+    color: var(--on-primary);
+    background-color: var(--primary);
+    transition: color 0.5s ease-in-out, background-color 0.5s ease-in-out;
+}
+
+#root, .background {
+    color: var(--on-background);
+    background-color: var(--background);
+    transition: color 0.5s ease-in-out, background-color 0.5s ease-in-out;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    background-color: unset;
+    text-align: center;
+}
+
+a.primary.btn {
+    text-decoration: none;
+    border-radius: 5px;
+    padding: 5px 10px;
+    line-height: 2;
+}
+
+a.primary.btn:active, a.primary.btn:focus {
+    outline: 2px solid var(--second-primary);
+}
+
+header {
+    position: sticky;
+    top: 0;
+    flex: 0 0 auto;
+    width: 100%;
+    height: 60px;
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+#logo-link {
+    height: 100%;
+}
+
+#logo {
+    fill: var(--background);
+    height: 100%;
+}
+
+@media screen and (min-width: 650px) {
+    .centroid-block {
+        height: 100px;
+    }
+
+    #centroid-container {
+        flex-wrap: wrap;
+    }
+}
+
+@media screen and (min-width: 950px) {
+    .centroid-block {
+        height: 150px;
+    }
+
+    .centroid-block-title {
+        line-height: 2;
+    }
+
+    header {
+        height: 80px;
+    }
+}
+
+@media screen and (min-width: 1650px) {
+    #centroid-container {
+        gap: 10px;
+    }
+
+    .centroid-block-title {
+        transform: translateY(100%);
+    }
+
+    .centroid-block {
+        height: 100px;
+    }
+
+    #left-container {
+        gap: 100px;
+    }
+
+    #image-loader {
+        max-width: 768px;
+        max-height: 768px;
+    }
+
+    main {
+        flex-direction: row;
+        margin: auto 0;
+        gap: 50px;
+    }
+
+    a.primary.btn {
+        padding: 10px 20px;
+    }
+}
+
+@media screen and (min-width: 2050px) {
+    #image-loader {
+        max-width: 1024px;
+        max-height: 1024px;
+    }
+
+    .centroid-block {
+        height: 150px;
+    }
+}
